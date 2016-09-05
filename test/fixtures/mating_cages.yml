@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cage_id: MyString
+  mated: 2016-08-25
+  strain1: MyString
+  strain2: MyString
+
+two:
+  cage_id: MyString
+  mated: 2016-08-25
+  strain1: MyString
+  strain2: MyString

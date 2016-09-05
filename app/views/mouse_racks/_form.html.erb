@@ -1,0 +1,29 @@
+<%= form_for(@mouse_rack) do |f| %>
+  <% if @mouse_rack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mouse_rack.errors.count, "error") %> prohibited this mouse_rack from being saved:</h2>
+
+      <ul>
+      <% @mouse_rack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :side %><br>
+    <%= f.text_field :side %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

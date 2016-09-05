@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mating Cages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cage</th>
+      <th>Mated</th>
+      <th>Strain1</th>
+      <th>Strain2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mating_cages.each do |mating_cage| %>
+      <tr>
+        <td><%= mating_cage.cage_id %></td>
+        <td><%= mating_cage.mated %></td>
+        <td><%= mating_cage.strain1 %></td>
+        <td><%= mating_cage.strain2 %></td>
+        <td><%= link_to 'Show', mating_cage %></td>
+        <td><%= link_to 'Edit', edit_mating_cage_path(mating_cage) %></td>
+        <td><%= link_to 'Destroy', mating_cage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mating cage', new_mating_cage_path %>

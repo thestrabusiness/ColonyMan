@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cage:</strong>
+  <%= @mating_cage.cage_id %>
+</p>
+
+<p>
+  <strong>Mated:</strong>
+  <%= @mating_cage.mated %>
+</p>
+
+<p>
+  <strong>Strain1:</strong>
+  <%= @mating_cage.strain1 %>
+</p>
+
+<p>
+  <strong>Strain2:</strong>
+  <%= @mating_cage.strain2 %>
+</p>
+
+<%= link_to 'Edit', edit_mating_cage_path(@mating_cage) %> |
+<%= link_to 'Back', mating_cages_path %>

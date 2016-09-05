@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @mouse_rack.number %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @mouse_rack.type %>
+</p>
+
+<p>
+  <strong>Side:</strong>
+  <%= @mouse_rack.side %>
+</p>
+
+<%= link_to 'Edit', edit_mouse_rack_path(@mouse_rack) %> |
+<%= link_to 'Back', mouse_racks_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cage_id: MyString
+  occupancy: 1
+  sex: MyString
+  dob: 2016-08-25
+
+two:
+  cage_id: MyString
+  occupancy: 1
+  sex: MyString
+  dob: 2016-08-25

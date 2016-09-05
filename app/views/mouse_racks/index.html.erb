@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mouse Racks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Type</th>
+      <th>Side</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mouse_racks.each do |mouse_rack| %>
+      <tr>
+        <td><%= mouse_rack.number %></td>
+        <td><%= mouse_rack.type %></td>
+        <td><%= mouse_rack.side %></td>
+        <td><%= link_to 'Show', mouse_rack %></td>
+        <td><%= link_to 'Edit', edit_mouse_rack_path(mouse_rack) %></td>
+        <td><%= link_to 'Destroy', mouse_rack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mouse rack', new_mouse_rack_path %>

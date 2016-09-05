@@ -1,0 +1,1 @@
+json.partial! "holding_cages/holding_cage", holding_cage: @holding_cage

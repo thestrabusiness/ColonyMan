@@ -1,0 +1,17 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: colony_manager
+
+test:
+  <<: *default
+  database: colony_manager_test
+
+production:
+  <<: *default
+  database: colony_manager_production

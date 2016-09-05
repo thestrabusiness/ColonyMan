@@ -1,0 +1,1 @@
+json.array! @mouse_racks, partial: 'mouse_racks/mouse_rack', as: :mouse_rack

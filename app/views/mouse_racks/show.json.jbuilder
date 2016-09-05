@@ -1,0 +1,1 @@
+json.partial! "mouse_racks/mouse_rack", mouse_rack: @mouse_rack

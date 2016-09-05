@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cage:</strong>
+  <%= @holding_cage.cage_id %>
+</p>
+
+<p>
+  <strong>Occupancy:</strong>
+  <%= @holding_cage.occupancy %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @holding_cage.sex %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @holding_cage.dob %>
+</p>
+
+<%= link_to 'Edit', edit_holding_cage_path(@holding_cage) %> |
+<%= link_to 'Back', holding_cages_path %>

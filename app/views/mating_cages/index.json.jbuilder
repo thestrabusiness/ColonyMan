@@ -1,0 +1,1 @@
+json.array! @mating_cages, partial: 'mating_cages/mating_cage', as: :mating_cage
