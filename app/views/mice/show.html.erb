@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @mouse.dob %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @mouse.sex %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @mouse.number %>
+</p>
+
+<p>
+  <strong>Genotype:</strong>
+  <%= @mouse.genotype %>
+</p>
+
+<%= link_to 'Edit', edit_mouse_path(@mouse) %> |
+<%= link_to 'Back', mice_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mice
   resources :mating_cages
   resources :holding_cages
   resources :mouse_racks
