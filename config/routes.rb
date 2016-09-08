@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   resources :mice
  
   resources :mouse_racks do
-    resources :mating_cages
-    resources :holding_cages
+    resources :mating_cages, shallow: true, controller: 'mouse_racks/mating_cages'
+    resources :holding_cages, shallow: true, controller: 'mouse_racks/holding_cages'
+    resources :slots
   end
+  
+  resources :mating_cages
+  resources :holding_cages
   
   root 'mouse_racks#index'
   # The priority is based upon order of creation: first created -> highest priority.

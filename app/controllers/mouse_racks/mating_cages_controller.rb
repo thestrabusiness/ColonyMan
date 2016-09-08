@@ -15,7 +15,7 @@ class MouseRacks::MatingCagesController < ApplicationController
   # GET /mating_cages/new
   def new
     @mouse_rack = MouseRack.find(params[:mouse_rack_id])
-    @mating_cage = MatingCage.new   
+    @mating_cage = MatingCage.new  
   end
 
   # GET /mating_cages/1/edit

@@ -15,5 +15,19 @@
   <%= @mouse_rack.side %>
 </p>
 
+<div class="grid">
+  <% @slots.each do |slot| %>
+  <div class="col">
+    <% if slot.occupied == false %>
+      <%= link_to 'ADD MATING CAGE', new_mouse_rack_mating_cage_path(@mouse_rack, slot.position), class: "slotlink" %> <br>
+      <%= link_to 'ADD HOLDING CAGE', new_mouse_rack_holding_cage_path(@mouse_rack, slot.position), class: "slotlink" %>
+    <% else %>
+      <%= slot.position %>
+      <%= slot.occupied %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_mouse_rack_path(@mouse_rack) %> |
 <%= link_to 'Back', mouse_racks_path %>

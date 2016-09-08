@@ -10,6 +10,7 @@ class MouseRacksController < ApplicationController
   # GET /mouse_racks/1
   # GET /mouse_racks/1.json
   def show
+    @slots = Slot.where(:mouse_rack_id => params[:id])
   end
 
   # GET /mouse_racks/new
