@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   resources :mice
-  resources :mating_cages
-  resources :holding_cages
-  resources :mouse_racks
+ 
+  resources :mouse_racks do
+    resources :mating_cages
+    resources :holding_cages
+  end
+  
+  root 'mouse_racks#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

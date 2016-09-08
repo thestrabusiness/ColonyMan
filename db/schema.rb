@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907001018) do
+ActiveRecord::Schema.define(version: 20160908002642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160907001018) do
     t.integer  "mating_cages_id"
     t.string   "parents"
     t.string   "strain"
+    t.integer  "mouse_racks_id"
+    t.integer  "slots_id"
   end
 
   create_table "mating_cages", force: :cascade do |t|
@@ -33,8 +35,10 @@ ActiveRecord::Schema.define(version: 20160907001018) do
     t.date     "mated"
     t.string   "strain1"
     t.string   "strain2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "mouse_racks_id"
+    t.integer  "slots_id"
   end
 
   create_table "mice", force: :cascade do |t|
@@ -54,6 +58,15 @@ ActiveRecord::Schema.define(version: 20160907001018) do
     t.string   "side"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.integer  "position"
+    t.boolean  "occupied"
+    t.string   "side"
+    t.integer  "mouse_racks_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

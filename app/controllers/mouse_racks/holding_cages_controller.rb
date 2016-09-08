@@ -1,4 +1,4 @@
-class HoldingCagesController < ApplicationController
+class MouseRacks::HoldingCagesController < ApplicationController
   before_action :set_holding_cage, only: [:show, :edit, :update, :destroy]
 
   # GET /holding_cages

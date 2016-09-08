@@ -1,4 +1,4 @@
-class MatingCagesController < ApplicationController
+class MouseRacks::MatingCagesController < ApplicationController
   before_action :set_mating_cage, only: [:show, :edit, :update, :destroy]
 
   # GET /mating_cages
@@ -14,7 +14,8 @@ class MatingCagesController < ApplicationController
 
   # GET /mating_cages/new
   def new
-    @mating_cage = MatingCage.new
+    @mouse_rack = MouseRack.find(params[:mouse_rack_id])
+    @mating_cage = MatingCage.new   
   end
 
   # GET /mating_cages/1/edit
@@ -24,7 +25,9 @@ class MatingCagesController < ApplicationController
   # POST /mating_cages
   # POST /mating_cages.json
   def create
+    @mouse_rack = MouseRack.find(params[:mouse_rack_id])
     @mating_cage = MatingCage.new(mating_cage_params)
+    @mating_cage.mouse_rack_id = @mouse_rack.id
 
     respond_to do |format|
       if @mating_cage.save
