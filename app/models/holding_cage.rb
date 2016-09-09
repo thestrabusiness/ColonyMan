@@ -8,14 +8,14 @@ class HoldingCage < ActiveRecord::Base
   after_destroy :empty_slot
   
   def fill_slot
-    @slot = Slot.find(self.slot_id)
+    @slot = Slot.find(self.slotable_id)
     if @slot.occupied == false
      @slot.update_attribute :occupied, true
     end      
   end
   
   def empty_slot
-    @slot = Slot.find(self.slot_id)
+    @slot = Slot.find(self.slotable_id)
     if @slot.occupied == true
       @slot.update_attribute :occupied, false
     end      

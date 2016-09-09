@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908232954) do
+ActiveRecord::Schema.define(version: 20160909141351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20160908232954) do
     t.string   "parents"
     t.string   "strain"
     t.integer  "mouse_rack_id"
-    t.integer  "slot_id"
+    t.integer  "slotable_id"
+    t.string   "slotable_type"
   end
 
-  add_index "holding_cages", ["slot_id", "mouse_rack_id"], name: "index_holding_cages_on_slot_id_and_mouse_rack_id", using: :btree
+  add_index "holding_cages", ["slotable_type", "slotable_id"], name: "index_holding_cages_on_slotable_type_and_slotable_id", using: :btree
 
   create_table "mating_cages", force: :cascade do |t|
     t.string   "cage_id"
@@ -40,10 +41,11 @@ ActiveRecord::Schema.define(version: 20160908232954) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "mouse_rack_id"
-    t.integer  "slot_id"
+    t.integer  "slotable_id"
+    t.string   "slotable_type"
   end
 
-  add_index "mating_cages", ["slot_id", "mouse_rack_id"], name: "index_mating_cages_on_slot_id_and_mouse_rack_id", using: :btree
+  add_index "mating_cages", ["slotable_type", "slotable_id"], name: "index_mating_cages_on_slotable_type_and_slotable_id", using: :btree
 
   create_table "mice", force: :cascade do |t|
     t.date     "dob"

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   
-  resources :mice
- 
   resources :mouse_racks do
-    resources :mating_cages, except: [:index], controller: 'mouse_racks/mating_cages'
-    resources :holding_cages, except: [:index], controller: 'mouse_racks/holding_cages'
+    
+    resources :mating_cages, except: [:index], controller: 'mouse_racks/mating_cages' do
+      resources :mice, only: [:create, :update, :destroy]
+    end
+    
+    resources :holding_cages, except: [:index], controller: 'mouse_racks/holding_cages' do
+      resources :mice, only: [:create, :update, :destroy]
+    end
+    
     resources :slots
+    
   end
   
   root 'mouse_racks#index'
