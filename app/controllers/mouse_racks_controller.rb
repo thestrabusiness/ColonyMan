@@ -10,7 +10,9 @@ class MouseRacksController < ApplicationController
   # GET /mouse_racks/1
   # GET /mouse_racks/1.json
   def show
-    @slots = Slot.where(:mouse_rack_id => params[:id])
+    @slots = Slot.where(:mouse_rack_id => params[:id]).order('id ASC')
+    @holding_cages = HoldingCage.where(:mouse_rack_id => params[:id])
+    @mating_cages = MatingCage.where(:mouse_rack_id => params[:id])
   end
 
   # GET /mouse_racks/new

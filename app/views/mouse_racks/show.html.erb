@@ -19,10 +19,10 @@
   <% @slots.each do |slot| %>
   <div class="col">
     <% if slot.occupied == false %>
-      <%= link_to 'ADD MATING CAGE', new_mouse_rack_mating_cage_path(@mouse_rack, slot.position), class: "slotlink" %> <br>
-      <%= link_to 'ADD HOLDING CAGE', new_mouse_rack_holding_cage_path(@mouse_rack, slot.position), class: "slotlink" %>
+      <%= link_to 'ADD MATING CAGE', new_mouse_rack_mating_cage_path(@mouse_rack, :slot_id => slot.id), class: "slotlink" %> <br>
+      <%= link_to 'ADD HOLDING CAGE', new_mouse_rack_holding_cage_path(@mouse_rack, :slot_id => slot.id), class: "slotlink" %>
     <% else %>
-      <%= slot.position %>
+      <%= slot.position %><br>
       <%= slot.occupied %>
     <% end %>
   </div>

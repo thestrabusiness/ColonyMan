@@ -26,6 +26,7 @@ class MouseRacks::MatingCagesController < ApplicationController
   # POST /mating_cages.json
   def create
     @mouse_rack = MouseRack.find(params[:mouse_rack_id])
+    @slot = Slot.find(params[:slot_id])
     @mating_cage = MatingCage.new(mating_cage_params)
     @mating_cage.mouse_rack_id = @mouse_rack.id
 

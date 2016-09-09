@@ -28,13 +28,13 @@ class MouseRacks::SlotsController < ApplicationController
 
   private
 
-  def set_slot
-    @slot = Slot.find(params[:id])
-  end
+    def set_slot
+      @slot = Slot.find(params[:id])
+    end
 
-  def slot_params
-    params.require(:slot).permit(:position, :occupied, :side,:"mouse_rack_id)
-  end
+    def slot_params
+      params.require(:slot).permit(:position, :occupied, :side,:mouse_rack_id)
+    end
 
   end
 

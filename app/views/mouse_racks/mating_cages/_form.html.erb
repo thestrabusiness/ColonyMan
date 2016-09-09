@@ -1,4 +1,4 @@
-<%= form_for(@mating_cage) do |f| %>
+<%= form_for [@mouse_rack, @mating_cage] do |f| %>
   <% if @mating_cage.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@mating_cage.errors.count, "error") %> prohibited this mating_cage from being saved:</h2>
@@ -27,6 +27,9 @@
     <%= f.label :strain2 %><br>
     <%= f.text_field :strain2 %>
   </div>
+
+  <%= f.hidden_field :slot_id, :value => params[:slot_id] %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

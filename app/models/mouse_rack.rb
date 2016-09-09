@@ -2,8 +2,8 @@ class MouseRack < ActiveRecord::Base
   
   self.inheritance_column = :fake_column
   
-  has_many :holding_cages
-  has_many :mating_cages
+  has_many :holding_cages, through: :slots
+  has_many :mating_cages, through: :slots
   has_many :slots, dependent: :destroy
   
   validates :number, presence: true

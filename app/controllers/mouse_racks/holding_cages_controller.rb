@@ -15,6 +15,8 @@ class MouseRacks::HoldingCagesController < ApplicationController
   # GET /holding_cages/new
   def new
     @holding_cage = HoldingCage.new
+    @mouse_rack = MouseRack.find(params[:mouse_rack_id])
+    @slot = Slot.find(params[:slot_id])
   end
 
   # GET /holding_cages/1/edit
@@ -24,12 +26,14 @@ class MouseRacks::HoldingCagesController < ApplicationController
   # POST /holding_cages
   # POST /holding_cages.json
   def create
+    @mouse_rack = MouseRack.find(params[:mouse_rack_id])
     @holding_cage = HoldingCage.new(holding_cage_params)
+    @holding_cage.mouse_rack_id = @mouse_rack.id
 
     respond_to do |format|
       if @holding_cage.save
-        format.html { redirect_to @holding_cage, notice: 'Holding cage was successfully created.' }
-        format.json { render :show, status: :created, location: @holding_cage }
+        format.html { redirect_to @mouse_rack, notice: 'Holding cage was successfully created.' }
+        format.json { render :show, status: :created, location: @mouse_rack }
       else
         format.html { render :new }
         format.json { render json: @holding_cage.errors, status: :unprocessable_entity }
@@ -69,6 +73,6 @@ class MouseRacks::HoldingCagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holding_cage_params
-      params.require(:holding_cage).permit(:cage_id, :occupancy, :sex, :dob)
+      params.require(:holding_cage).permit(:cage_id, :occupancy, :sex, :dob, :mouse_rack_id, :slot_id)
     end
 end
