@@ -1,34 +1,31 @@
 class MiceController < ApplicationController
   before_action :set_mouse, only: [:show, :edit, :update, :destroy]
 
-  # GET /mice
-  # GET /mice.json
   def index
     @mice = Mouse.all
   end
 
-  # GET /mice/1
-  # GET /mice/1.json
   def show
   end
-
-  # GET /mice/new
+  
   def new
     @mouse = Mouse.new
+    @holding_cage = HoldingCage.find(params[:holding_cage_id])
   end
 
-  # GET /mice/1/edit
   def edit
   end
 
-  # POST /mice
-  # POST /mice.json
   def create
     @mouse = Mouse.new(mouse_params)
+    @holding_cage = HoldingCage.find(params[:holding_cage_id])
+    @mouse.holding_cage_id = @holding_cage.id
+    @mouse.sex = @holding_cage.sex
+    @holding_cage.update_pop("create")
 
     respond_to do |format|
       if @mouse.save
-        format.html { redirect_to @mouse, notice: 'Mouse was successfully created.' }
+        format.html { redirect_to @holding_cage, notice: 'Mouse was successfully created.' }
         format.json { render :show, status: :created, location: @mouse }
       else
         format.html { render :new }
@@ -37,8 +34,6 @@ class MiceController < ApplicationController
     end
   end
 
-  # PATCH/PUT /mice/1
-  # PATCH/PUT /mice/1.json
   def update
     respond_to do |format|
       if @mouse.update(mouse_params)
@@ -51,13 +46,16 @@ class MiceController < ApplicationController
     end
   end
 
-  # DELETE /mice/1
-  # DELETE /mice/1.json
   def destroy
-    @mouse.destroy
-    respond_to do |format|
-      format.html { redirect_to mice_url, notice: 'Mouse was successfully destroyed.' }
-      format.json { head :no_content }
+    @holding_cage = @mouse.holding_cage
+    if @mouse.destroy
+      @mouse.holding_cage.update_pop("destroy")
+      respond_to do |format|
+        format.html { redirect_to @holding_cage, notice: 'Mouse was successfully removed.' }
+        format.json { head :no_content }
+      end
+    else
+        format.html { redirect_to @holding_cage, notice: 'There was an error removing the mouse.'}
     end
   end
 

@@ -6,7 +6,8 @@ class MouseRacks::HoldingCagesController < ApplicationController
   end
 
   def show
-    @mouse_rack = MouseRack.find(params[:mouse_rack_id])
+    @mouse_rack = @holding_cage.mouse_rack
+    @mice = Mouse.where(holding_cage_id: @holding_cage.id)
   end
 
   def new
@@ -15,6 +16,7 @@ class MouseRacks::HoldingCagesController < ApplicationController
   end
 
   def edit
+    @mouse_rack = @holding_cage.mouse_rack
   end
 
   def create

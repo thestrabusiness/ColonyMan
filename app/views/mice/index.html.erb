@@ -21,13 +21,7 @@
         <td><%= mouse.number %></td>
         <td><%= mouse.genotype %></td>
         <td><%= link_to 'Show', mouse %></td>
-        <td><%= link_to 'Edit', edit_mouse_path(mouse) %></td>
-        <td><%= link_to 'Destroy', mouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Mouse', new_mouse_path %>

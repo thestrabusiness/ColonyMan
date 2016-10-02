@@ -19,6 +19,15 @@ class HoldingCage < ActiveRecord::Base
     if @slot.occupied == true
       @slot.update_attribute :occupied, false
     end      
-  end      
-    
+  end
+  
+  def update_pop(method)
+    if method == "create"
+      self.occupancy += 1
+    else
+      self.occupancy -= 1
+    end
+    self.save
+  end
+      
 end

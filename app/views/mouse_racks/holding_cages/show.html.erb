@@ -20,5 +20,32 @@
   <%= @holding_cage.dob %>
 </p>
 
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Genotype</th>
+      <th>DOB</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mice.each do |mouse|%>
+    <tr>
+      <td><%= mouse.number %></td>
+      <td><%= mouse.genotype %></td>
+      <td><%= mouse.dob %></td>
+      <td><%= link_to "Delete", [@holding_cage, mouse], method: :delete, confirm: "Are you sure you want to remove this mouse from the cage?" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  
+
+<%= link_to 'Add a mouse', new_holding_cage_mouse_path(@holding_cage, :sex => @holding_cage.sex) %>
+<br>
+<br>
 <%= link_to 'Edit', edit_mouse_rack_holding_cage_path(@mouse_rack, @holding_cage) %> |
 <%= link_to 'Back', mouse_rack_path(@mouse_rack) %>

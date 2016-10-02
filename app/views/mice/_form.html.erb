@@ -1,4 +1,4 @@
-<%= form_for(@mouse) do |f| %>
+<%= form_for [@holding_cage, @mouse] do |f| %>
   <% if @mouse.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@mouse.errors.count, "error") %> prohibited this mouse from being saved:</h2>
@@ -14,10 +14,6 @@
   <div class="field">
     <%= f.label :dob %><br>
     <%= f.date_select :dob %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.text_field :sex %>
   </div>
   <div class="field">
     <%= f.label :number %><br>
