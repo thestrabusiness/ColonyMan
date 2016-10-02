@@ -1,34 +1,29 @@
 class MouseRacks::MatingCagesController < ApplicationController
   before_action :set_mating_cage, only: [:show, :edit, :update, :destroy]
 
-  # GET /mating_cages
-  # GET /mating_cages.json
+
   def index
     @mating_cages = MatingCage.all
   end
 
-  # GET /mating_cages/1
-  # GET /mating_cages/1.json
   def show
+    @mouse_rack = @mating_cage.mouse_rack
+    @mice = Mouse.where(mating_cage_id: @mating_cage.id)
   end
 
-  # GET /mating_cages/new
   def new
     @mouse_rack = MouseRack.find(params[:mouse_rack_id])
     @mating_cage = MatingCage.new  
   end
 
-  # GET /mating_cages/1/edit
   def edit
   end
 
-  # POST /mating_cages
-  # POST /mating_cages.json
   def create
     @mouse_rack = MouseRack.find(params[:mouse_rack_id])
-    @slot = Slot.find(params[:slot_id])
     @mating_cage = MatingCage.new(mating_cage_params)
     @mating_cage.mouse_rack_id = @mouse_rack.id
+    @mating_cage.slotable_type = "Slot"
 
     respond_to do |format|
       if @mating_cage.save
@@ -41,8 +36,6 @@ class MouseRacks::MatingCagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /mating_cages/1
-  # PATCH/PUT /mating_cages/1.json
   def update
     respond_to do |format|
       if @mating_cage.update(mating_cage_params)
@@ -55,8 +48,6 @@ class MouseRacks::MatingCagesController < ApplicationController
     end
   end
 
-  # DELETE /mating_cages/1
-  # DELETE /mating_cages/1.json
   def destroy
     @mating_cage.destroy
     respond_to do |format|
@@ -73,6 +64,6 @@ class MouseRacks::MatingCagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mating_cage_params
-      params.require(:mating_cage).permit(:cage_id, :mated, :strain1, :strain2)
+      params.require(:mating_cage).permit(:cage_id, :mated, :strain1, :strain2, :slotable_id)
     end
 end

@@ -8,4 +8,12 @@ class Slot < ActiveRecord::Base
   validates :occupied, inclusion: { in: [ true, false ] }
   validates :mouse_rack_id, presence: true
   
+  def cage_info
+    if self.holding_cage
+      'holding_info'
+    else
+      'mating_info'
+    end
+  end
+  
 end

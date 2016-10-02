@@ -23,9 +23,7 @@
       <br>
       <%= link_to 'ADD HOLDING CAGE', new_mouse_rack_holding_cage_path(@mouse_rack, :slot_id => slot.id), class: "slotlink" %>
     <% else %>
-      <%= link_to slot.holding_cage.cage_id, mouse_rack_holding_cage_path(@mouse_rack, slot.holding_cage) %> <br>
-      <%= slot.holding_cage.sex %> <br>
-      <%= slot.holding_cage.occupancy %>
+      <%= render partial: 'mouse_racks/' + slot.cage_info, :locals => {:slot => slot} %>
     <% end %>
   </div>
   <% end %>
