@@ -2,22 +2,22 @@
 
 <p>
   <strong>Cage:</strong>
-  <%= @holding_cage.cage_id %>
+  <%= @cage.cage_id %>
 </p>
 
 <p>
   <strong>Occupancy:</strong>
-  <%= @holding_cage.occupancy %>
+  <%= @cage.occupancy %>
 </p>
 
 <p>
   <strong>Sex:</strong>
-  <%= @holding_cage.sex %>
+  <%= @cage.sex %>
 </p>
 
 <p>
   <strong>Dob:</strong>
-  <%= @holding_cage.dob %>
+  <%= @cage.dob %>
 </p>
 
 <br>
@@ -37,15 +37,15 @@
       <td><%= mouse.number %></td>
       <td><%= mouse.genotype %></td>
       <td><%= mouse.dob %></td>
-      <td><%= link_to "Delete", [@holding_cage, mouse], method: :delete, confirm: "Are you sure you want to remove this mouse from the cage?" %></td>
+      <td><%= link_to "Delete", [@cage, mouse], method: :delete, confirm: "Are you sure you want to remove this mouse from the cage?" %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
   
 
-<%= link_to 'Add a mouse', new_holding_cage_mouse_path(@holding_cage, :sex => @holding_cage.sex) %>
+<%= link_to 'Add a mouse', new_cage_mouse_path(@cage, :sex => @cage.sex) %>
 <br>
 <br>
-<%= link_to 'Edit', edit_mouse_rack_holding_cage_path(@mouse_rack, @holding_cage) %> |
+<%= link_to 'Edit', edit_mouse_rack_cage_path(@mouse_rack, @cage) %> |
 <%= link_to 'Back', mouse_rack_path(@mouse_rack) %>

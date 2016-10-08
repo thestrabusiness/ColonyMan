@@ -1,1 +1,0 @@
-json.array! @holding_cages, partial: 'holding_cages/holding_cage', as: :holding_cage

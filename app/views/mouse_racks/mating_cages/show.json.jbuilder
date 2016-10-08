@@ -1,1 +1,0 @@
-json.partial! "mating_cages/mating_cage", mating_cage: @mating_cage

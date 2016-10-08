@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Holding Cages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cage</th>
+      <th>Occupancy</th>
+      <th>Sex</th>
+      <th>Dob</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cages.each do |cage| %>
+      <tr>
+        <td><%= cage.cage_id %></td>
+        <td><%= cage.occupancy %></td>
+        <td><%= cage.sex %></td>
+        <td><%= cage.dob %></td>
+        <td><%= link_to 'Show', cage %></td>
+        <td><%= link_to 'Edit', edit_cage_path(cage) %></td>
+        <td><%= link_to 'Destroy', cage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Holding cage', new_cage_path %>

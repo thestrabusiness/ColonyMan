@@ -1,10 +1,10 @@
-<%= form_for [@mouse_rack, @holding_cage] do |f| %>
-  <% if @holding_cage.errors.any? %>
+<%= form_for [@mouse_rack, @cage] do |f| %>
+  <% if @cage.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@holding_cage.errors.count, "error") %> prohibited this holding_cage from being saved:</h2>
+      <h2><%= pluralize(@cage.errors.count, "error") %> prohibited this cage from being saved:</h2>
 
       <ul>
-      <% @holding_cage.errors.full_messages.each do |message| %>
+      <% @cage.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -27,8 +27,6 @@
     <%= f.label :dob %><br>
     <%= f.date_select :dob %>
   </div>
-
-  <%= f.hidden_field :slotable_id, :value => params[:slot_id] %>
   
   <div class="actions">
     <%= f.submit %>
